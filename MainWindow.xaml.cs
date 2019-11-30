@@ -23,6 +23,8 @@ namespace MVVMApp
 		public MainWindow()
 		{
 			InitializeComponent();
+
+			DataContext = new ApplicationViewModel();
 		}
 	}
 }
