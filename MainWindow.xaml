@@ -42,8 +42,11 @@
         
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Button Command="{Binding AddCommand}">+</Button>
-            <Button Command="{Binding DelCommand}">Del</Button>
-            <Button Command="{Binding CopyCommand}">Copy</Button>
+            <Button Command="{Binding DelCommand}"
+                    CommandParameter="{Binding SelectedPhone}">Del</Button>
+            <Button Command="{Binding CopyCommand}"
+                    CommandParameter="{Binding SelectedPhone}">Copy</Button>
+            <Button Content="{Binding Phones.Count}"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1" DataContext="{Binding SelectedPhone}">

@@ -35,12 +35,20 @@ namespace MVVMApp
 		{
 			get
 			{
-				return delCommand ?? (delCommand = new RelayCommand(obj =>
-				{
-					Phone phone = SelectedPhone;
-					Phones.Remove(phone);
-					SelectedPhone = null;
-				}));
+				return delCommand ??
+					(delCommand = new RelayCommand(obj =>
+					{
+						Phone phone = obj as Phone;
+						if (phone != null)
+						{
+							Phones.Remove(phone);
+						}
+					},
+					(obj) => 
+					{
+						return (Phones.Count > 0 && obj != null);
+					}
+					));
 			}
 		}
 		private RelayCommand copyCommand;
@@ -48,15 +56,18 @@ namespace MVVMApp
 		{
 			get
 			{
-				return copyCommand ?? (copyCommand = new RelayCommand(obj =>
-				{
-					if(SelectedPhone != null)
+				return copyCommand ??
+					(copyCommand = new RelayCommand(obj =>
 					{
-						Phone phone = (Phone)SelectedPhone.Clone();
+						Phone phone = obj as Phone;
 						Phones.Insert(0, phone);
 						SelectedPhone = phone;
+					},
+					(obj) =>
+					{
+						return obj != null;
 					}
-				}));
+					));
 			}
 		}
 
