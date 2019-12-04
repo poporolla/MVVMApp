@@ -24,7 +24,7 @@ namespace MVVMApp
 		{
 			InitializeComponent();
 
-			DataContext = new ApplicationViewModel();
+			DataContext = new ApplicationViewModel(new JsonFileService(), new DefaultDialogService());
 		}
 	}
 }

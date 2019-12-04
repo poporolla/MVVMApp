@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 
 namespace MVVMApp
 {
-	class PhoneViewModel : INotifyPropertyChanged
+	public class PhoneViewModel : INotifyPropertyChanged
 	{
 		private Phone phone;
 		public PhoneViewModel(Phone phone)

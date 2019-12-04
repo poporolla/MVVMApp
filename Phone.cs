@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 
 namespace MVVMApp
 {
-	class Phone : ICloneable, INotifyPropertyChanged
+	public class Phone : ICloneable, INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 		public void OnPropertyChanged([CallerMemberName]string prop = "")
@@ -15,12 +15,12 @@ namespace MVVMApp
 		}
 		public object Clone()
 		{
-			return new Phone() 
-				{
-				Title = this.Title, 
-				Company = this.company, 
-				Price = this.price 
-				};
+			return new Phone()
+			{
+				Title = this.Title,
+				Company = this.company,
+				Price = this.price
+			};
 		}
 		private string title;
 		private string company;
